@@ -1,14 +1,20 @@
 name: Verify
-run-name: Verify on ${{ github.sha }}
-on: [push]
+run-name: Verify for ${{ github.sha }}
+
+on:
+  workflow_run:
+    workflows: ["Prepare"]
+    types:
+      - completed
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    container: node:20
-    steps:
-      - run: npm run build
   lint:
     runs-on: ubuntu-latest
     container: node:20
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Download npm-install artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: npm-install-artifact-${{ github.run_id }}
       - run: npm run lint
