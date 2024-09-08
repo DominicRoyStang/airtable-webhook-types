@@ -1,0 +1,14 @@
+name: Verify
+run-name: Verify on ${{ github.sha }}
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: node:20
+    steps:
+      - run: npm run build
+  lint:
+    runs-on: ubuntu-latest
+    container: node:20
+    steps:
+      - run: npm run lint
