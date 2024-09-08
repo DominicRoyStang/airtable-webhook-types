@@ -1,0 +1,38 @@
+{
+  "name": "airtable-webhook-types",
+  "version": "1.0.0",
+  "description": "Typescript and Zod types for Airtable webhooks",
+  "license": "MIT",
+  "author": "Dominic Roy-Stang",
+  "keywords": [
+    "airtable",
+    "webhook",
+    "zod",
+    "typescript",
+    "type"
+  ],
+  "homepage": "https://github.com/DominicRoyStang/airtable-webhook-types#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DominicRoyStang/airtable-webhook-types.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DominicRoyStang/airtable-webhook-types/issues"
+  },
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@stylistic/eslint-plugin": "^2.7.2",
+    "eslint": "^9.10.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.4.0"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}
