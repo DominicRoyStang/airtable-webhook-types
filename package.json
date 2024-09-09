@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/DominicRoyStang/airtable-webhook-types/issues"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
