@@ -56,7 +56,7 @@ export const webhookPayloadSchema = z.object({
   actionMetadata: webhookActionSchema,
   baseTransactionNumber: z.number(),
   payloadFormat: z.literal('v0'),
-  timestamp: z.string(),
+  payloadTimestamp: z.string(),
   changedTablesById: z.record(webhookTableChangedSchema).optional(),
   createdTablesById: z.record(webhookTableCreatedSchema).optional(),
   destroyedTableIds: z.string().array(),
