@@ -1,0 +1,49 @@
+name: onCommit
+run-name: onCommit for ${{ github.sha }}
+on: [push]
+jobs:
+  npm-ci:
+    runs-on: ubuntu-latest
+    container: node:20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - run: npm ci
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: npm-ci-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-ci-${{ hashFiles('package-lock.json') }}
+            npm-ci
+
+  typescript-build:
+    needs: npm-ci
+    runs-on: ubuntu-latest
+    container: node:20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Restore node_modules from cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: npm-ci-${{ hashFiles('package-lock.json') }}
+          fail-on-cache-miss: true
+      - run: npm run build
+
+  lint:
+    needs: npm-ci
+    runs-on: ubuntu-latest
+    container: node:20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Restore node_modules from cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: npm-ci-${{ hashFiles('package-lock.json') }}
+          fail-on-cache-miss: true
+      - run: npm run lint
