@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { fieldTypeSchema } from './fields.js'
+import { cellsSchema, fieldTypeSchema } from './fields.js'
 
 export const webhookNotificationSchema = z.object({
   base: z.object({ id: z.string() }),
@@ -45,7 +45,11 @@ export const webhookActionSchema = z.discriminatedUnion('source', [
 export type WebhookAction = z.infer<typeof webhookActionSchema>
 
 // As per documentation: https://airtable.com/developers/web/api/model/webhooks-table-changed
-export const webhookTableChangedSchema = z.object({}) // TODO
+export const webhookTableChangedSchema = z.object({
+  changedViewsById: z.object({}).optional(), // TODO
+  changedFieldsById: z.object({}).optional(), // TODO
+  changedRecordsById: z.object({}).optional(), // TODO
+})
 export type WebhookTableChanged = z.infer<typeof webhookTableChangedSchema>
 
 // As per documentation: https://airtable.com/developers/web/api/model/webhooks-table-created
@@ -56,7 +60,7 @@ export const webhookTableCreatedSchema = z.object({
   })),
   recordsById: z.record(z.object({
     createdTime: z.string().datetime(),
-    cellValuesByFieldId: z.object({}), // TODO
+    cellValuesByFieldId: z.record(cellsSchema),
   })),
   metadata: z.object({
     name: z.string(),
