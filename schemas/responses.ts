@@ -26,3 +26,17 @@ export const listWebhooksResponseSchema = z.object({
   }),
 }).array()
 export type ListWebhooksResponse = z.infer<typeof listWebhooksResponseSchema>
+
+// As per documentation: https://airtable.com/developers/web/api/create-a-webhook
+export const createWebhookResponseSchema = z.object({
+  id: z.string(),
+  macSecretBase64: z.string(),
+  expirationTime: z.string().optional(),
+})
+export type CreateWebhookResponse = z.infer<typeof createWebhookResponseSchema>
+
+// As per documentation: https://airtable.com/developers/web/api/refresh-a-webhook
+export const refreshWebhookResponseSchema = z.object({
+  expirationTime: z.string().nullable(),
+})
+export type RefreshWebhookResponse = z.infer<typeof refreshWebhookResponseSchema>
