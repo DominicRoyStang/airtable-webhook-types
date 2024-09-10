@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { fieldTypeSchema } from './fields.js'
 
 export const webhookNotificationSchema = z.object({
   base: z.object({ id: z.string() }),
