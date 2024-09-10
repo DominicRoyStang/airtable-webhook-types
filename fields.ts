@@ -246,3 +246,41 @@ export type SyncSourceCell = z.infer<typeof syncSourceCellSchema>
 
 export const urlCellSchema = z.string().url()
 export type UrlCell = z.infer<typeof urlCellSchema>
+
+export const cellsSchema = z.union([
+  aiTextCellSchema,
+  attachmentCellSchema,
+  autoNumberCellSchema,
+  barcodeCellSchema,
+  buttonCellSchema,
+  checkboxCellSchema,
+  collaboratorCellSchema,
+  countCellSchema,
+  createdByCellSchema,
+  createdTimeCellSchema,
+  currencyCellSchema,
+  dateCellSchema,
+  dateTimeCellSchema,
+  durationCellSchema,
+  emailCellSchema,
+  formulaCellSchema,
+  lastModifiedByCellSchema,
+  lastModifiedTimeCellSchema,
+  linkToAnotherRecordCellSchema,
+  longTextCellSchema,
+  lookupCellSchema,
+  multipleCollaboratorsCellSchema,
+  multipleSelectsCellSchema,
+  numberCellSchema,
+  percentCellSchema,
+  phoneNumberCellSchema,
+  ratingCellSchema,
+  richTextCellSchema,
+  rollupCellSchema,
+  singleLineTextCellSchema,
+  singleSelectCellSchema,
+  syncSourceCellSchema,
+  urlCellSchema,
+])
+
+export type CellsSchema = z.infer<typeof cellsSchema>
