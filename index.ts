@@ -14,7 +14,7 @@ export const webhookUserSchema = z.object({
   email: z.string(),
   permissionLevel: z.enum(['none', 'read', 'comment', 'edit', 'create']),
   name: z.string().optional(),
-  profilePicUrl: z.string().optional(),
+  profilePicUrl: z.string().url().optional(),
 })
 export type WebhookUser = z.infer<typeof webhookUserSchema>
 
@@ -45,11 +45,24 @@ export const webhookActionSchema = z.discriminatedUnion('source', [
 export type WebhookAction = z.infer<typeof webhookActionSchema>
 
 // As per documentation: https://airtable.com/developers/web/api/model/webhooks-table-changed
-const webhookTableChangedSchema = z.object({}) // TODO
+export const webhookTableChangedSchema = z.object({}) // TODO
 export type WebhookTableChanged = z.infer<typeof webhookTableChangedSchema>
 
 // As per documentation: https://airtable.com/developers/web/api/model/webhooks-table-created
-const webhookTableCreatedSchema = z.object({}) // TODO
+export const webhookTableCreatedSchema = z.object({
+  fieldsById: z.record(z.object({
+    type: fieldTypeSchema,
+    name: z.string(),
+  })),
+  recordsById: z.record(z.object({
+    createdTime: z.string().datetime(),
+    cellValuesByFieldId: z.object({}), // TODO
+  })),
+  metadata: z.object({
+    name: z.string(),
+    description: z.string().nullable(),
+  }),
+})
 export type WebhookTableCreated = z.infer<typeof webhookTableCreatedSchema>
 
 // As per documentation: https://airtable.com/developers/web/api/model/webhooks-payload
