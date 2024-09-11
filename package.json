@@ -1,6 +1,6 @@
 {
   "name": "airtable-webhook-types",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Typescript and Zod types for Airtable webhooks",
   "license": "MIT",
   "author": "Dominic Roy-Stang",
