@@ -1,6 +1,6 @@
-# Airable Webhook Types
+# Airtable Webhook Types
 
-[Typescript](https://www.typescriptlang.org/) and [Zod](https://zod.dev/) types for Airtable webhooks
+[TypeScript](https://www.typescriptlang.org/) and [Zod](https://zod.dev/) type definitions for Airtable webhooks
 
 ## About
 
@@ -13,19 +13,19 @@ The goal of this library is to provide all types used by Airtable webhooks, as d
 
 ## Installation
 
-If want to use the Zod schemas and the Typescript types
+If want to use the Zod schemas and the TypeScript types
 ```
 npm install airtable-webhook-types
 ```
 
-If you only want to use the Typescript types
+If you only want to use the TypeScript types
 ```
 npm install --save-dev airtable-webhook-types
 ```
 
 ## Example Usage
 
-### Using zod schemas
+### Using Zod schemas
 ```typescript
 import { listWebhookPayloadsResponseSchema } from 'airtable-webhook-types'
 
@@ -41,7 +41,7 @@ const response = await fetch(`https://api.airtable.com/v0/bases/${params.baseId}
 const responseData = listWebhookPayloadsResponseSchema.parse(await response.json())
 ```
 
-### Using typescript types
+### Using TypeScript types
 ```typescript
 import { CreateWebhookRequestBody, CreateWebhookPathParams, CreateWebhookResponse } from 'airtable-webhook-types'
 
