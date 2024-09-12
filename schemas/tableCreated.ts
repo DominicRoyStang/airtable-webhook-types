@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { cellsSchema, fieldTypeSchema } from './fields.js'
+import { cellsSchema, fieldTypeSchema } from './fields/index.js'
 
 // As per documentation: https://airtable.com/developers/web/api/model/webhooks-table-created
 export const webhookTableCreatedSchema = z.object({
