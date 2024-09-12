@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { webhookRecordChangedSchema } from './recordChanged.js'
 import { webhookRecordCreatedSchema } from './recordCreated.js'
-import { fieldTypeSchema } from './fields.js'
+import { fieldTypeSchema } from './fields/index.js'
 
 // As per documentation: https://airtable.com/developers/web/api/model/webhooks-table-changed
 export const webhookTableChangedSchema = z.object({
