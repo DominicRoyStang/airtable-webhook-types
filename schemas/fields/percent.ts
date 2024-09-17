@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#percentnumber
-export const percentCellSchema = z.number()
+export const percentCellSchema = z.number().nullable()
 export type PercentCell = z.infer<typeof percentCellSchema>
 
 export const percentFieldSchema = z.object({

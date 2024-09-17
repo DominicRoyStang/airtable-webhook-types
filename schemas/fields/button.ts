@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const buttonCellSchema = z.object({
   label: z.string(),
   url: z.string().url().nullable(),
-})
+}).nullable()
 export type ButtonCell = z.infer<typeof buttonCellSchema>
 
 export const buttonFieldSchema = z.object({ type: z.literal('button') })

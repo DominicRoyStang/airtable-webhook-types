@@ -7,7 +7,7 @@ export const formulaCellSchema = z.union([
   z.boolean(),
   z.array(z.union([z.string(), z.number()])),
   z.undefined(),
-])
+]).nullable()
 export type FormulaCell = z.infer<typeof formulaCellSchema>
 
 export const formulaFieldSchema = z.object({

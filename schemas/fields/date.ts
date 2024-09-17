@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#dateonly
-export const dateCellSchema = z.string()
+export const dateCellSchema = z.string().nullable()
 export type DateCell = z.infer<typeof dateCellSchema>
 
 export const dateFieldSchema = z.object({

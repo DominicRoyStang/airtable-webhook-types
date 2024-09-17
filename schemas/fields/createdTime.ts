@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#createdby
-export const createdTimeCellSchema = z.string()
+export const createdTimeCellSchema = z.string().nullable()
 export type CreatedTimeCell = z.infer<typeof createdTimeCellSchema>
 
 export const createdTimeFieldSchema = z.object({

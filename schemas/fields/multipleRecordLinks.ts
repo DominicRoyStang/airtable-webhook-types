@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const multipleRecordLinksCellSchema = z.object({
   id: z.string(),
   name: z.string(),
-}).array()
+}).array().nullable()
 export type MultipleRecordLinksCell = z.infer<typeof multipleRecordLinksCellSchema>
 
 export const multipleRecordLinksFieldSchema = z.object({

@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#rollup
-export const rollupCellSchema = z.any()
+export const rollupCellSchema = z.any().nullable()
 export type RollupCell = z.infer<typeof rollupCellSchema>
 
 export const rollupFieldSchema = z.object({

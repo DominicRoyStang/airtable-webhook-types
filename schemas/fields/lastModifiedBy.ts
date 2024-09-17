@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { singleCollaboratorCellSchema } from './singleCollaborator.js'
+import { collaboratorCellSchema } from './shared.js'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#lastmodifiedby
-export const lastModifiedByCellSchema = singleCollaboratorCellSchema
+export const lastModifiedByCellSchema = collaboratorCellSchema.nullable()
 export type LastModifiedByCell = z.infer<typeof lastModifiedByCellSchema>
 
 export const lastModifiedByFieldSchema = z.object({ type: z.literal('lastModifiedBy') })

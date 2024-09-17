@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#lastmodifiedtime
-export const lastModifiedTimeCellSchema = z.string()
+export const lastModifiedTimeCellSchema = z.string().nullable()
 export type LastModifiedTimeCell = z.infer<typeof lastModifiedTimeCellSchema>
 
 export const lastModifiedTimeFieldSchema = z.object({

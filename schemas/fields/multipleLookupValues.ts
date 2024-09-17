@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const multipleLookupValuesCellSchema = z.object({
   valuesByLinkedRecordId: z.record(z.any().array()),
   linkedRecordIds: z.string().array(),
-})
+}).nullable()
 export type MultipleLookupValuesCell = z.infer<typeof multipleLookupValuesCellSchema>
 
 export const multipleLookupValuesFieldSchema = z.object({

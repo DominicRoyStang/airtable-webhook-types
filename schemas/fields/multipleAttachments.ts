@@ -19,7 +19,7 @@ export const multipleAttachmentsCellSchema = z.object({
     large: thumbnailSchema.optional(),
     small: thumbnailSchema.optional(),
   }),
-}).array()
+}).array().nullable()
 export type MultipleAttachmentsCell = z.infer<typeof multipleAttachmentsCellSchema>
 
 export const multipleAttachmentsFieldSchema = z.object({
