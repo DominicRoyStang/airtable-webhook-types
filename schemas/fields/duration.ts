@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#durationnumber
-export const durationCellSchema = z.number()
+export const durationCellSchema = z.number().nullable()
 export type DurationCell = z.infer<typeof durationCellSchema>
 
 export const durationFieldSchema = z.object({

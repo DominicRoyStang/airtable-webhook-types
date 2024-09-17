@@ -1,12 +1,12 @@
 import { z } from 'zod'
-import { colorSchema } from './colors.js'
+import { colorSchema } from './shared.js'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#syncsource
 export const externalSyncSourceCellSchema = z.object({
   id: z.string(),
   name: z.string(),
   color: z.string().optional(),
-})
+}).nullable()
 export type ExternalSyncSourceCell = z.infer<typeof externalSyncSourceCellSchema>
 
 export const externalSyncSourceFieldSchema = z.object({

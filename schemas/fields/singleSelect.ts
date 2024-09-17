@@ -1,12 +1,12 @@
 import { z } from 'zod'
-import { colorSchema } from './colors.js'
+import { colorSchema } from './shared.js'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#select
 export const singleSelectCellSchema = z.object({
   id: z.string(),
   color: colorSchema.optional(),
   name: z.string(),
-})
+}).nullable()
 export type SingleSelectCell = z.infer<typeof singleSelectCellSchema>
 
 export const singleSelectFieldSchema = z.object({

@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#count
-export const countCellSchema = z.number()
+export const countCellSchema = z.number().nullable()
 export type CountCell = z.infer<typeof countCellSchema>
 
 export const countFieldSchema = z.object({

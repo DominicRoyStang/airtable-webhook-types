@@ -1,5 +1,13 @@
 import { z } from 'zod'
 
+export const collaboratorCellSchema = z.object({
+  id: z.string(),
+  email: z.string().email().optional(),
+  name: z.string().optional(),
+  permissionLevel: z.enum(['none', 'read', 'comment', 'edit', 'create']).optional(),
+  profilePicUrl: z.string().url().optional(),
+})
+
 export const lightColorSchema = z.enum([
   'blueLight2',
   'cyanLight2',

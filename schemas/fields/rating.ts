@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { brightColorSchema } from './colors.js'
+import { brightColorSchema } from './shared.js'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#rating
-export const ratingCellSchema = z.number()
+export const ratingCellSchema = z.number().nullable()
 export type RatingCell = z.infer<typeof ratingCellSchema>
 
 export const ratingFieldSchema = z.object({

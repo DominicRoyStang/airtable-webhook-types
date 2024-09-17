@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const barcodeCellSchema = z.object({
   type: z.string().nullable().optional(),
   text: z.string(),
-})
+}).nullable()
 export type BarcodeCell = z.infer<typeof barcodeCellSchema>
 
 export const barcodeFieldSchema = z.object({ type: z.literal('barcode') })

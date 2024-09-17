@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#currencynumber
-export const currencyCellSchema = z.number()
+export const currencyCellSchema = z.number().nullable()
 export type CurrencyCell = z.infer<typeof currencyCellSchema>
 
 export const currencyFieldSchema = z.object({

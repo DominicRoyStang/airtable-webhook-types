@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { singleCollaboratorCellSchema } from './singleCollaborator.js'
+import { collaboratorCellSchema } from './shared.js'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#multicollaborator
-export const multipleCollaboratorsCellSchema = singleCollaboratorCellSchema.array()
+export const multipleCollaboratorsCellSchema = collaboratorCellSchema.array().nullable()
 export type MultipleCollaboratorsCell = z.infer<typeof multipleCollaboratorsCellSchema>
 
 export const multipleCollaboratorsFieldSchema = z.object({

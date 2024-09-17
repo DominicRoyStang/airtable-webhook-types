@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { brightColorSchema } from './colors.js'
+import { brightColorSchema } from './shared.js'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#checkbox
-export const checkboxCellSchema = z.boolean().optional()
+export const checkboxCellSchema = z.boolean().nullable().optional()
 export type CheckboxCell = z.infer<typeof checkboxCellSchema>
 
 export const checkboxFieldSchema = z.object({

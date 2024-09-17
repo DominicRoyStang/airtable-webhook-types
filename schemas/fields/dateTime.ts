@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 // As per documentation: https://airtable.com/developers/web/api/field-model#dateandtime
-export const dateTimeCellSchema = z.string().datetime()
+export const dateTimeCellSchema = z.string().datetime().nullable()
 export type DateTimeCell = z.infer<typeof dateTimeCellSchema>
 
 export const dateTimeFieldSchema = z.object({

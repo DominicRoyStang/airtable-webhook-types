@@ -13,7 +13,7 @@ export const aiTextCellSchema = z.discriminatedUnion('state', [
     isStale: z.boolean(),
     value: z.string().nullable(),
   }),
-])
+]).nullable()
 export type AiTextCell = z.infer<typeof aiTextCellSchema>
 
 export const aiTextFieldSchema = z.object({
